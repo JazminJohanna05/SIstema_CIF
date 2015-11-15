@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SistemaCIF_Service.Services.UsuarioService" CodeBehind="UsuarioService.svc.cs" %>

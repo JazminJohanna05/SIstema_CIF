@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39110505-359c-4f38-83ee-966522073560" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55544/Services/CategoriaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CategoriaService.xsd" MetadataType="Schema" ID="b672f549-4ebf-482c-83c0-c5fb41cebad2" SourceId="1" SourceUrl="http://localhost:55544/Services/CategoriaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CategoriaService.disco" MetadataType="Disco" ID="7735b169-f4b8-4092-8c2f-d23bb4004c56" SourceId="1" SourceUrl="http://localhost:55544/Services/CategoriaService.svc?disco" />
+    <MetadataFile FileName="CategoriaService.wsdl" MetadataType="Wsdl" ID="d572a40a-64b7-4989-b450-0d3f56956831" SourceId="1" SourceUrl="http://localhost:55544/Services/CategoriaService.svc?wsdl" />
+    <MetadataFile FileName="CategoriaService1.xsd" MetadataType="Schema" ID="98c45be4-e533-4f51-a6db-1915653973c3" SourceId="1" SourceUrl="http://localhost:55544/Services/CategoriaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CategoriaService2.xsd" MetadataType="Schema" ID="ca7bb9f0-09df-404a-9b19-b9d914cb1cfc" SourceId="1" SourceUrl="http://localhost:55544/Services/CategoriaService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

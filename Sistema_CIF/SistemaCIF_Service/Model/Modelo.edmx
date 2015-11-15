@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Sistema_CIFModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Sistema_CIFModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Sistema_CIFModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cliente" EntityType="Sistema_CIFModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empleado" EntityType="Sistema_CIFModel.Store.Empleado" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Factura" EntityType="Sistema_CIFModel.Store.Factura" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FacturaDetalle" EntityType="Sistema_CIFModel.Store.FacturaDetalle" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Local" EntityType="Sistema_CIFModel.Store.Local" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Privilegio" EntityType="Sistema_CIFModel.Store.Privilegio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Producto" EntityType="Sistema_CIFModel.Store.Producto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Proveedor" EntityType="Sistema_CIFModel.Store.Proveedor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="Sistema_CIFModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Sistema_CIFModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tienda" EntityType="Sistema_CIFModel.Store.Tienda" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TipoPago" EntityType="Sistema_CIFModel.Store.TipoPago" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="Sistema_CIFModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vendedor" EntityType="Sistema_CIFModel.Store.Vendedor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VentasCredito" EntityType="Sistema_CIFModel.Store.VentasCredito" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Factura_Factura" Association="Sistema_CIFModel.Store.FK_Factura_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Factura1" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Privilegio" Association="Sistema_CIFModel.Store.FK_Usuario_Privilegio">
+            <End Role="Privilegio" EntitySet="Privilegio" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Roles" Association="Sistema_CIFModel.Store.FK_Usuario_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoriaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Movil" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoCliente" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="EmpleadoId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmpleadoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Foto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaIngreso" Type="date" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="FacturaId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FacturaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoFactura" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendedorId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaCreacion" Type="date" />
+          <Property Name="FacturaComercialId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClienteId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FacturaDetalle">
+          <Key>
+            <PropertyRef Name="FacturaDetalleId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FacturaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FacturaDetalleId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductoId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductoDescripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio" Type="decimal" />
+          <Property Name="Cantidad" Type="decimal" />
+          <Property Name="TipoPagoId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descuento" Type="decimal" />
+          <Property Name="SubTotal" Type="decimal" />
+          <Property Name="Impuesto" Type="decimal" />
+          <Property Name="Total" Type="decimal" />
+          <Property Name="Fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Local">
+          <Key>
+            <PropertyRef Name="LocalId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LocalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Encargado" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Privilegio">
+          <Key>
+            <PropertyRef Name="PrivilegioId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrivilegioId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoriaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProveedorId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio" Type="decimal" />
+          <Property Name="Existencia" Type="int" />
+          <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ProveedorId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProveedorId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NombreEmpresa" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoEmpresa" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="TiendaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoProveedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreEncargado" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoEncargado" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApellidoEncargado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identidadencargado" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoProducto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RolId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tienda">
+          <Key>
+            <PropertyRef Name="TiendaId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TiendaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Encargado" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoEncargaddo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="IdentidadEncargado" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="TipoPagoId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPagoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DescripcionPago" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmacionContrasena" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="PrivilegioId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="RolId" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Name="Id" Type="int" />
+          <Property Name="IdVendedor" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Puesto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VentasCredito">
+          <Key>
+            <PropertyRef Name="VentaId" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VentaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FacturaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClienteId" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreCliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductoId" Type="nvarchar" MaxLength="50" />
+          <Property Name="TiendaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio" Type="decimal" />
+          <Property Name="Cantidad" Type="decimal" />
+          <Property Name="Total" Type="decimal" />
+          <Property Name="Impuesto" Type="decimal" />
+          <Property Name="Descuento" Type="decimal" />
+          <Property Name="SubTotal" Type="decimal" />
+          <Property Name="Extras" Type="decimal" />
+          <Property Name="FechaCredito" Type="date" />
+        </EntityType>
+        <Association Name="FK_Factura_Factura">
+          <End Role="Factura" Type="Sistema_CIFModel.Store.Factura" Multiplicity="1" />
+          <End Role="Factura1" Type="Sistema_CIFModel.Store.Factura" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="FacturaId" />
+            </Principal>
+            <Dependent Role="Factura1">
+              <PropertyRef Name="FacturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Privilegio">
+          <End Role="Privilegio" Type="Sistema_CIFModel.Store.Privilegio" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Sistema_CIFModel.Store.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Privilegio">
+              <PropertyRef Name="PrivilegioId" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="PrivilegioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Roles">
+          <End Role="Roles" Type="Sistema_CIFModel.Store.Roles" Multiplicity="1" />
+          <End Role="Usuario" Type="Sistema_CIFModel.Store.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Sistema_CIFModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Sistema_CIFEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Producto" EntityType="Sistema_CIFModel.Producto" />
+          <EntitySet Name="Categoria" EntityType="Sistema_CIFModel.Categoria" />
+          <EntitySet Name="Cliente" EntityType="Sistema_CIFModel.Cliente" />
+          <EntitySet Name="Empleado" EntityType="Sistema_CIFModel.Empleado" />
+          <EntitySet Name="Factura" EntityType="Sistema_CIFModel.Factura" />
+          <EntitySet Name="FacturaDetalle" EntityType="Sistema_CIFModel.FacturaDetalle" />
+          <EntitySet Name="Local" EntityType="Sistema_CIFModel.Local" />
+          <EntitySet Name="Privilegio" EntityType="Sistema_CIFModel.Privilegio" />
+          <EntitySet Name="Proveedor" EntityType="Sistema_CIFModel.Proveedor" />
+          <EntitySet Name="Roles" EntityType="Sistema_CIFModel.Roles" />
+          <EntitySet Name="sysdiagrams" EntityType="Sistema_CIFModel.sysdiagrams" />
+          <EntitySet Name="Tienda" EntityType="Sistema_CIFModel.Tienda" />
+          <EntitySet Name="TipoPago" EntityType="Sistema_CIFModel.TipoPago" />
+          <EntitySet Name="Usuario" EntityType="Sistema_CIFModel.Usuario" />
+          <EntitySet Name="Vendedor" EntityType="Sistema_CIFModel.Vendedor" />
+          <EntitySet Name="VentasCredito" EntityType="Sistema_CIFModel.VentasCredito" />
+          <AssociationSet Name="FK_Factura_Factura" Association="Sistema_CIFModel.FK_Factura_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Factura1" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Privilegio" Association="Sistema_CIFModel.FK_Usuario_Privilegio">
+            <End Role="Privilegio" EntitySet="Privilegio" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Roles" Association="Sistema_CIFModel.FK_Usuario_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProductoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CategoriaId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProveedorId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Existencia" />
+          <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CategoriaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ClienteId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaNacimiento" Precision="0" />
+          <Property Type="String" Name="Ciudad" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Movil" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipoCliente" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="EmpleadoId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EmpleadoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Identidad" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Foto" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaIngreso" Precision="0" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="FacturaId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FacturaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipoFactura" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Estado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VendedorId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaCreacion" Precision="0" />
+          <Property Type="String" Name="FacturaComercialId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClienteId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Factura1" Relationship="Sistema_CIFModel.FK_Factura_Factura" FromRole="Factura" ToRole="Factura1" />
+          <NavigationProperty Name="Factura2" Relationship="Sistema_CIFModel.FK_Factura_Factura" FromRole="Factura1" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="FacturaDetalle">
+          <Key>
+            <PropertyRef Name="FacturaDetalleId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FacturaId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FacturaDetalleId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductoId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductoDescripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Cantidad" Precision="18" Scale="0" />
+          <Property Type="String" Name="TipoPagoId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Descuento" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="SubTotal" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Impuesto" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Total" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Precision="0" />
+        </EntityType>
+        <EntityType Name="Local">
+          <Key>
+            <PropertyRef Name="LocalId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LocalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Encargado" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Privilegio">
+          <Key>
+            <PropertyRef Name="PrivilegioId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PrivilegioId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuario" Relationship="Sistema_CIFModel.FK_Usuario_Privilegio" FromRole="Privilegio" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ProveedorId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProveedorId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreEmpresa" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TelefonoEmpresa" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TiendaId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipoProveedor" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TelefonoEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApellidoEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Identidadencargado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipoProducto" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RolId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RolId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuario" Relationship="Sistema_CIFModel.FK_Usuario_Roles" FromRole="Roles" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tienda">
+          <Key>
+            <PropertyRef Name="TiendaId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TiendaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Encargado" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TelefonoEncargaddo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentidadEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="TipoPagoId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TipoPagoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescripcionPago" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UsuarioId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contrasena" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ConfirmacionContrasena" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaNacimiento" Precision="3" />
+          <Property Type="String" Name="PrivilegioId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sexo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cargo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Identidad" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RolId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Privilegio" Relationship="Sistema_CIFModel.FK_Usuario_Privilegio" FromRole="Usuario" ToRole="Privilegio" />
+          <NavigationProperty Name="Roles" Relationship="Sistema_CIFModel.FK_Usuario_Roles" FromRole="Usuario" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Type="Int32" Name="Id" />
+          <Property Type="String" Name="IdVendedor" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ciudad" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Puesto" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VentasCredito">
+          <Key>
+            <PropertyRef Name="VentaId" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="VentaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FacturaId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClienteId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreCliente" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductoId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TiendaId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Cantidad" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Total" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Impuesto" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Descuento" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="SubTotal" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Extras" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaCredito" Precision="0" />
+        </EntityType>
+        <Association Name="FK_Factura_Factura">
+          <End Type="Sistema_CIFModel.Factura" Role="Factura" Multiplicity="1" />
+          <End Type="Sistema_CIFModel.Factura" Role="Factura1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="FacturaId" />
+            </Principal>
+            <Dependent Role="Factura1">
+              <PropertyRef Name="FacturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Privilegio">
+          <End Type="Sistema_CIFModel.Privilegio" Role="Privilegio" Multiplicity="0..1" />
+          <End Type="Sistema_CIFModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Privilegio">
+              <PropertyRef Name="PrivilegioId" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="PrivilegioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Roles">
+          <End Type="Sistema_CIFModel.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="Sistema_CIFModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RolId" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Sistema_CIFModelStoreContainer" CdmEntityContainer="Sistema_CIFEntities">
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="LocalId" ColumnName="LocalId" />
+                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="TipoCliente" ColumnName="TipoCliente" />
+                <ScalarProperty Name="LocalId" ColumnName="LocalId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Movil" ColumnName="Movil" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Identidad" ColumnName="Identidad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="FacturaComercialId" ColumnName="FacturaComercialId" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="VendedorId" ColumnName="VendedorId" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+                <ScalarProperty Name="LocalId" ColumnName="LocalId" />
+                <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacturaDetalle">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.FacturaDetalle">
+              <MappingFragment StoreEntitySet="FacturaDetalle">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="TipoPagoId" ColumnName="TipoPagoId" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="ProductoDescripcion" ColumnName="ProductoDescripcion" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="FacturaDetalleId" ColumnName="FacturaDetalleId" />
+                <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Local">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Local">
+              <MappingFragment StoreEntitySet="Local">
+                <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="LocalId" ColumnName="LocalId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Privilegio">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Privilegio">
+              <MappingFragment StoreEntitySet="Privilegio">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PrivilegioId" ColumnName="PrivilegioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+                <ScalarProperty Name="Identidadencargado" ColumnName="Identidadencargado" />
+                <ScalarProperty Name="ApellidoEncargado" ColumnName="ApellidoEncargado" />
+                <ScalarProperty Name="TelefonoEncargado" ColumnName="TelefonoEncargado" />
+                <ScalarProperty Name="NombreEncargado" ColumnName="NombreEncargado" />
+                <ScalarProperty Name="TipoProveedor" ColumnName="TipoProveedor" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TiendaId" ColumnName="TiendaId" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="TelefonoEmpresa" ColumnName="TelefonoEmpresa" />
+                <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tienda">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Tienda">
+              <MappingFragment StoreEntitySet="Tienda">
+                <ScalarProperty Name="IdentidadEncargado" ColumnName="IdentidadEncargado" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TelefonoEncargaddo" ColumnName="TelefonoEncargaddo" />
+                <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="TiendaId" ColumnName="TiendaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPago">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.TipoPago">
+              <MappingFragment StoreEntitySet="TipoPago">
+                <ScalarProperty Name="DescripcionPago" ColumnName="DescripcionPago" />
+                <ScalarProperty Name="TipoPagoId" ColumnName="TipoPagoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="Identidad" ColumnName="Identidad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="PrivilegioId" ColumnName="PrivilegioId" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="ConfirmacionContrasena" ColumnName="ConfirmacionContrasena" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendedor">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.Vendedor">
+              <MappingFragment StoreEntitySet="Vendedor">
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VentasCredito">
+            <EntityTypeMapping TypeName="Sistema_CIFModel.VentasCredito">
+              <MappingFragment StoreEntitySet="VentasCredito">
+                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="Extras" ColumnName="Extras" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="TiendaId" ColumnName="TiendaId" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+                <ScalarProperty Name="LocalId" ColumnName="LocalId" />
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

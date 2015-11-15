@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sistema_CIFModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Sistema_CIFEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Sistema_CIFModel.Categoria" />
+    <EntitySet Name="Cliente" EntityType="Sistema_CIFModel.Cliente" />
+    <EntitySet Name="Empleado" EntityType="Sistema_CIFModel.Empleado" />
+    <EntitySet Name="Factura" EntityType="Sistema_CIFModel.Factura" />
+    <EntitySet Name="FacturaDetalle" EntityType="Sistema_CIFModel.FacturaDetalle" />
+    <EntitySet Name="Local" EntityType="Sistema_CIFModel.Local" />
+    <EntitySet Name="Privilegio" EntityType="Sistema_CIFModel.Privilegio" />
+    <EntitySet Name="Producto" EntityType="Sistema_CIFModel.Producto" />
+    <EntitySet Name="Proveedor" EntityType="Sistema_CIFModel.Proveedor" />
+    <EntitySet Name="Roles" EntityType="Sistema_CIFModel.Roles" />
+    <EntitySet Name="Tienda" EntityType="Sistema_CIFModel.Tienda" />
+    <EntitySet Name="TipoPago" EntityType="Sistema_CIFModel.TipoPago" />
+    <EntitySet Name="Usuario" EntityType="Sistema_CIFModel.Usuario" />
+    <EntitySet Name="Vendedor" EntityType="Sistema_CIFModel.Vendedor" />
+    <EntitySet Name="VentasCredito" EntityType="Sistema_CIFModel.VentasCredito" />
+    <AssociationSet Name="FK_Factura_Factura" Association="Sistema_CIFModel.FK_Factura_Factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Factura1" EntitySet="Factura" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="CategoriaId" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CategoriaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ClienteId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FechaNacimiento" Precision="0" />
+    <Property Type="String" Name="Ciudad" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Movil" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TipoCliente" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="EmpleadoId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmpleadoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Identidad" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Foto" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FechaIngreso" Precision="0" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="FacturaId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FacturaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TipoFactura" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Estado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VendedorId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FechaCreacion" Precision="0" />
+    <Property Type="String" Name="FacturaComercialId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ClienteId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Factura1" Relationship="Sistema_CIFModel.FK_Factura_Factura" FromRole="Factura" ToRole="Factura1" />
+    <NavigationProperty Name="Factura2" Relationship="Sistema_CIFModel.FK_Factura_Factura" FromRole="Factura1" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="FacturaDetalle">
+    <Key>
+      <PropertyRef Name="FacturaDetalleId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FacturaId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FacturaDetalleId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductoId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductoDescripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Cantidad" Precision="18" Scale="0" />
+    <Property Type="String" Name="TipoPagoId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Descuento" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SubTotal" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Impuesto" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Total" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="Fecha" Precision="0" />
+  </EntityType>
+  <EntityType Name="Local">
+    <Key>
+      <PropertyRef Name="LocalId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="LocalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Encargado" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Privilegio">
+    <Key>
+      <PropertyRef Name="PrivilegioId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PrivilegioId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProductoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CategoriaId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProveedorId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Existencia" />
+    <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="ProveedorId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProveedorId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NombreEmpresa" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TelefonoEmpresa" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TiendaId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TipoProveedor" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NombreEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TelefonoEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApellidoEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Identidadencargado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TipoProducto" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RolId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RolId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tienda">
+    <Key>
+      <PropertyRef Name="TiendaId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TiendaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Encargado" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TelefonoEncargaddo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IdentidadEncargado" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TipoPago">
+    <Key>
+      <PropertyRef Name="TipoPagoId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TipoPagoId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DescripcionPago" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UsuarioId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NombreUsuario" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contrasena" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfirmacionContrasena" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FechaNacimiento" Precision="3" />
+    <Property Type="String" Name="PrivilegioId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Sexo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Cargo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Identidad" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vendedor">
+    <Key>
+      <PropertyRef Name="IdVendedor" />
+    </Key>
+    <Property Type="Int32" Name="Id" />
+    <Property Type="String" Name="IdVendedor" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Ciudad" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Puesto" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VentasCredito">
+    <Key>
+      <PropertyRef Name="VentaId" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="VentaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LocalId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FacturaId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ClienteId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NombreCliente" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductoId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TiendaId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Cantidad" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Total" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Impuesto" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Descuento" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SubTotal" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Extras" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="FechaCredito" Precision="0" />
+  </EntityType>
+  <Association Name="FK_Factura_Factura">
+    <End Type="Sistema_CIFModel.Factura" Role="Factura" Multiplicity="1" />
+    <End Type="Sistema_CIFModel.Factura" Role="Factura1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="FacturaId" />
+      </Principal>
+      <Dependent Role="Factura1">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

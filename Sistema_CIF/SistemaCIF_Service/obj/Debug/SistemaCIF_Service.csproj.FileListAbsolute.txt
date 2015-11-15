@@ -1,0 +1,14 @@
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\bin\SistemaCIF_Service.dll
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\bin\SistemaCIF_Service.pdb
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\bin\EntityFramework.dll
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\bin\EntityFramework.xml
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.dll
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.pdb
+C:\Users\Jazmin Maldonado\documents\visual studio 2012\Projects\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.csprojResolveAssemblyReference.cache
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.dll
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.pdb
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\bin\SistemaCIF_Service.dll
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\bin\SistemaCIF_Service.pdb
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\bin\EntityFramework.dll
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\bin\EntityFramework.xml
+C:\Users\Jazmin Maldonado\Desktop\Sistema_CIF\SistemaCIF_Service\obj\Debug\SistemaCIF_Service.csprojResolveAssemblyReference.cache

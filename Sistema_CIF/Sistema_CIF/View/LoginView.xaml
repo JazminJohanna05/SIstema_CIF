@@ -1,0 +1,128 @@
+﻿<Window x:Class="Sistema_CIF.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Title="LoginView" Height="768" Width="1024">
+
+    <Window.Resources>
+        <system:Double x:Key="Tamano">24</system:Double>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Path="LoginViewModel" Source="{StaticResource located}"/>
+    </Window.DataContext>
+    <Window.Foreground>
+        <ImageBrush Stretch="Fill" ImageSource="/Imagen\fONDDOOO.png"/>
+    </Window.Foreground>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="581*"/>
+            <ColumnDefinition Width="435*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Imagen\fONDDOOO.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81"/>
+            <RowDefinition Height="687"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle x:Name="Rectangle" Margin="5" Stroke="Black" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF4F4F5" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Margin="5" Background="#FF1B4D81" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" />
+        <TextBlock x:Name="EncabezadoTextBox"
+			Text="Sistema Control de Inventario y Facturacion"
+			TextWrapping="Wrap" Foreground="#FFFBECEC" FontSize="72" FontFamily="French Script MT" TextAlignment="Center" OpacityMask="#FFF6F6F6" Margin="5"
+			Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" />
+        <Grid x:Name="Login" Visibility="{Binding MostrarLogin,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="50,0,50,196" Grid.Row="1" Height="425" VerticalAlignment="Bottom" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="95*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="48*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="38*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="19*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Margin="5" Grid.Row="1" Content="Usuario:" Foreground="#FFFBFBFB" FontFamily="{StaticResource font}" FontSize="{StaticResource Tamano}" Grid.ColumnSpan="2"/>
+            <TextBox Grid.Column="1" Margin="5" Grid.Row="2" TextWrapping="Wrap" FontSize="{StaticResource Tamano}" FontFamily="{StaticResource font}" Grid.ColumnSpan="2"/>
+            <Label Grid.Column="1" Margin="5" Grid.Row="3" Content="Contraseña:" Foreground="#FFFBFBFB" FontFamily="{StaticResource font}" FontSize="{StaticResource Tamano}" Grid.ColumnSpan="2"/>
+            <PasswordBox Grid.Column="1" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" />
+            <Button Content="Login" Grid.Column="1" Margin="5" Grid.Row="6" FontSize="{StaticResource Tamano}" FontFamily="{StaticResource font}"  Foreground="#FF746B6B"/>
+            <Button Content="Cancelar" Grid.Column="2" Margin="5" Grid.Row="6" FontSize="{StaticResource Tamano}" FontFamily="{StaticResource font}"  Foreground="#FF6C5C5C"/>
+            <Button Content="Button" Command="{Binding ComandoMostrarRegistrarUsuario}" Grid.Column="2" Margin="5,5,5,5" Grid.Row="5" Style="{DynamicResource Registrar}">
+            </Button>
+        </Grid>
+        <Grid x:Name="Registrar" Visibility="{Binding MostrarLogin}" Grid.Column="1" Margin="5" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="662*"/>
+            </Grid.RowDefinitions>
+            <Label Visibility="{Binding MostrarLogin}" Margin="122,5" FontSize="15" Foreground="#FFF9F9F9" Content="Pantalla de Registro" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Width="186"/>
+            <Grid Margin="5,5,10,34" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="37"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="95*"/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="56*"/>
+                    <ColumnDefinition Width="94*"/>
+                    <ColumnDefinition Width="93*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Visibility="{Binding MostrarLogin}" Margin="5,5,5,5" FontSize="14" Foreground="#FFF9F9F9" Content="Nombre  Completo" FontFamily="Comic Sans MS" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="2"/>
+                <TextBox Visibility="{Binding MostrarLogin}"  Margin="5" TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox Visibility="{Binding MostrarLogin}" Margin="5" TextWrapping="Wrap" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"/>
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Nombre de Usuario" FontFamily="Comic Sans MS" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="1"/>
+                <TextBox Visibility="{Binding MostrarLogin}" Margin="5" TextWrapping="Wrap" Grid.Row="5"  Grid.ColumnSpan="4" Grid.Column="1"/>
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Crear Contraseña" FontFamily="Comic Sans MS" Grid.Row="6" Grid.ColumnSpan="4" Grid.Column="1"/>
+                <PasswordBox Visibility="{Binding MostrarLogin}" Grid.Column="1" Margin="5" Grid.Row="7" Grid.ColumnSpan="4"/>
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Vuelva escribir la Contraseña" FontFamily="Comic Sans MS" Grid.Row="8" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.522,0.281"/>
+                <PasswordBox Visibility="{Binding MostrarLogin}" Grid.Column="1" Margin="5" Grid.Row="9" Grid.ColumnSpan="4"/>
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Fecha de Nacimiento" FontFamily="Comic Sans MS" Grid.Row="10" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.522,0.281"/>
+                <ComboBox Visibility="{Binding MostrarLogin}" Grid.Column="1" Margin="5" Grid.Row="11" />
+                <ComboBox Visibility="{Binding MostrarLogin}" Grid.Column="2" Margin="5" Grid.Row="11" Grid.ColumnSpan="2" />
+                <ComboBox Visibility="{Binding MostrarLogin}" Grid.Column="4" Margin="5,5,5,5" Grid.Row="11" />
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Seleccionar Sexo" FontFamily="Comic Sans MS" Grid.Row="12" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.522,0.281"/>
+                <ComboBox Visibility="{Binding MostrarLogin}" Grid.Column="1" Margin="5" Grid.Row="13" Grid.ColumnSpan="3" />
+                <Label Visibility="{Binding MostrarLogin}" Margin="5" FontSize="14" Foreground="#FFF9F9F9" Content="Telefono" FontFamily="Comic Sans MS" Grid.Row="14" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.522,0.281"/>
+                <TextBox Margin="5" TextWrapping="Wrap" Grid.Row="15"  Grid.ColumnSpan="4" Grid.Column="1"/>
+                <Button Visibility="{Binding MostrarLogin}" Content="Crear Cuenta" Grid.Column="3" Margin="5,5,5,5" Grid.Row="16" Grid.ColumnSpan="2" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <Label Visibility="{Binding MostrarLogin}" Margin="5,5,0,5" FontSize="14" Foreground="#FFF9F9F9" Content="UsuarioId" FontFamily="Comic Sans MS"
+                       Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="229" Grid.ColumnSpan="4"/>
+                <TextBox Visibility="{Binding MostrarLogin}"  Margin="5,5,5,5" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Sistema_CIF.View.MantenimientoClienteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="MantenimientoClienteView" Height="768" Width="1024">
+    <Window.Resources>
+        <Color x:Key="Encabezados">#FFD6AD72</Color>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Path="ClienteViewModel" Source="{StaticResource located}"/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu/>
+        </Grid.ContextMenu>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="674*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource Encabezados}"/>
+            </Grid.Background>
+            <Label Content="Mantenimiento Clientes" Margin="5" FontSize="26"/>
+        </Grid>
+
+    </Grid>
+</Window>

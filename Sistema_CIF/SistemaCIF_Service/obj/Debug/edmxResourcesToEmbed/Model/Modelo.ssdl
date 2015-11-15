@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sistema_CIFModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Sistema_CIFModelStoreContainer">
+    <EntitySet Name="Categoria" EntityType="Sistema_CIFModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cliente" EntityType="Sistema_CIFModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empleado" EntityType="Sistema_CIFModel.Store.Empleado" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Factura" EntityType="Sistema_CIFModel.Store.Factura" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FacturaDetalle" EntityType="Sistema_CIFModel.Store.FacturaDetalle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Local" EntityType="Sistema_CIFModel.Store.Local" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Privilegio" EntityType="Sistema_CIFModel.Store.Privilegio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Producto" EntityType="Sistema_CIFModel.Store.Producto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Proveedor" EntityType="Sistema_CIFModel.Store.Proveedor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="Sistema_CIFModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tienda" EntityType="Sistema_CIFModel.Store.Tienda" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoPago" EntityType="Sistema_CIFModel.Store.TipoPago" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="Sistema_CIFModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendedor" EntityType="Sistema_CIFModel.Store.Vendedor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VentasCredito" EntityType="Sistema_CIFModel.Store.VentasCredito" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Factura_Factura" Association="Sistema_CIFModel.Store.FK_Factura_Factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Factura1" EntitySet="Factura" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="CategoriaId" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoriaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Movil" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TipoCliente" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="EmpleadoId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmpleadoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Identidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Foto" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaIngreso" Type="date" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="FacturaId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FacturaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TipoFactura" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendedorId" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="date" />
+    <Property Name="FacturaComercialId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClienteId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FacturaDetalle">
+    <Key>
+      <PropertyRef Name="FacturaDetalleId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FacturaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacturaDetalleId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductoId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductoDescripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Precio" Type="decimal" />
+    <Property Name="Cantidad" Type="decimal" />
+    <Property Name="TipoPagoId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descuento" Type="decimal" />
+    <Property Name="SubTotal" Type="decimal" />
+    <Property Name="Impuesto" Type="decimal" />
+    <Property Name="Total" Type="decimal" />
+    <Property Name="Fecha" Type="date" />
+  </EntityType>
+  <EntityType Name="Local">
+    <Key>
+      <PropertyRef Name="LocalId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Encargado" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Privilegio">
+    <Key>
+      <PropertyRef Name="PrivilegioId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PrivilegioId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoriaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProveedorId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Precio" Type="decimal" />
+    <Property Name="Existencia" Type="int" />
+    <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="ProveedorId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProveedorId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NombreEmpresa" Type="nvarchar" MaxLength="50" />
+    <Property Name="TelefonoEmpresa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="TiendaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TipoProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreEncargado" Type="nvarchar" MaxLength="50" />
+    <Property Name="TelefonoEncargado" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApellidoEncargado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Identidadencargado" Type="nvarchar" MaxLength="50" />
+    <Property Name="TipoProducto" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RolId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RolId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tienda">
+    <Key>
+      <PropertyRef Name="TiendaId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TiendaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Encargado" Type="nvarchar" MaxLength="50" />
+    <Property Name="TelefonoEncargaddo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="IdentidadEncargado" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoPago">
+    <Key>
+      <PropertyRef Name="TipoPagoId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TipoPagoId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DescripcionPago" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmacionContrasena" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="datetime" />
+    <Property Name="PrivilegioId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Identidad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vendedor">
+    <Key>
+      <PropertyRef Name="IdVendedor" />
+    </Key>
+    <Property Name="Id" Type="int" />
+    <Property Name="IdVendedor" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Puesto" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VentasCredito">
+    <Key>
+      <PropertyRef Name="VentaId" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VentaId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LocalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacturaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClienteId" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductoId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TiendaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Precio" Type="decimal" />
+    <Property Name="Cantidad" Type="decimal" />
+    <Property Name="Total" Type="decimal" />
+    <Property Name="Impuesto" Type="decimal" />
+    <Property Name="Descuento" Type="decimal" />
+    <Property Name="SubTotal" Type="decimal" />
+    <Property Name="Extras" Type="decimal" />
+    <Property Name="FechaCredito" Type="date" />
+  </EntityType>
+  <Association Name="FK_Factura_Factura">
+    <End Role="Factura" Type="Sistema_CIFModel.Store.Factura" Multiplicity="1" />
+    <End Role="Factura1" Type="Sistema_CIFModel.Store.Factura" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="FacturaId" />
+      </Principal>
+      <Dependent Role="Factura1">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

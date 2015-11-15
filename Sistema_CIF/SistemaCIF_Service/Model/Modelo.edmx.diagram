@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3172c985f0414b0585614bf0b62d2bf1" Name="Diagrama1">
+        <EntityTypeShape EntityType="Sistema_CIFModel.Producto" Width="1.5" PointX="9.9439598479978564" PointY="7.2446543012022291" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Categoria" Width="1.5" PointX="0.77784998006087258" PointY="27.363192869053776" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Cliente" Width="1.5" PointX="0.60691425791332232" PointY="22.662904362502928" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Empleado" Width="1.5" PointX="2.876916307433004" PointY="15.236280209960546" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Factura" Width="1.5" PointX="10.092481785496922" PointY="3.2322279527933468" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.FacturaDetalle" Width="1.5" PointX="4.86726671870205" PointY="7.202684435622154" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Local" Width="1.5" PointX="10.431797308117057" PointY="22.022842596295682" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Privilegio" Width="1.5" PointX="10.292540318468838" PointY="24.545870568857467" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Proveedor" Width="1.5" PointX="0.21279217498972647" PointY="16.654775671965805" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Roles" Width="1.5" PointX="7.48068741126018" PointY="26.885383603575352" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.sysdiagrams" Width="1.5" PointX="2.8810056871180452" PointY="15.279898933730973" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Tienda" Width="1.5" PointX="1.8925680731854253" PointY="28.774779824900804" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.TipoPago" Width="1.5" PointX="6.6392153606932682" PointY="30.254878296635521" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Usuario" Width="1.5" PointX="7.7018218318474583" PointY="10.405207847433728" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.Vendedor" Width="1.5" PointX="11.845831498431895" PointY="28.103185458156833" />
+        <EntityTypeShape EntityType="Sistema_CIFModel.VentasCredito" Width="1.5" PointX="6.3464652441192717" PointY="11.237146323191535" />
+        <AssociationConnector Association="Sistema_CIFModel.FK_Factura_Factura" />
+        <AssociationConnector Association="Sistema_CIFModel.FK_Usuario_Privilegio" />
+        <AssociationConnector Association="Sistema_CIFModel.FK_Usuario_Roles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
