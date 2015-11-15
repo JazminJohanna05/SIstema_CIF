@@ -243,13 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReferenciasExternas\GalaSoft.MvvmLight.WPF45.dll" />
-    <None Include="Service References\Proxies.Categoria\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\Proxies.Categoria\configuration.svcinfo" />
-    <None Include="Service References\Proxies.Categoria\configuration91.svcinfo" />
-    <None Include="Service References\Proxies.Categoria\CategoriaService.disco" />
     <None Include="Service References\Proxies.Usuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -257,6 +250,13 @@
     <None Include="Service References\Proxies.Usuario\configuration.svcinfo" />
     <None Include="Service References\Proxies.Usuario\configuration91.svcinfo" />
     <None Include="Service References\Proxies.Usuario\UsuarioService.disco" />
+    <None Include="Service References\Proxies.Categoria\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Proxies.Categoria\configuration.svcinfo" />
+    <None Include="Service References\Proxies.Categoria\configuration91.svcinfo" />
+    <None Include="Service References\Proxies.Categoria\CategoriaService.disco" />
     <Resource Include="Imagen\fONDDOOO.png" />
     <Resource Include="Imagen\FONDO SISTEMA.png" />
     <Resource Include="Imagen\fONDO.png" />
@@ -287,6 +287,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModuloAdministracionDeCreditos\" />
+    <Folder Include="ModuloAdministracionDePersonal\" />
+    <Folder Include="ModuloCalculoDePago\" />
+    <Folder Include="ModuloComunesCIF\ViewModel\" />
+    <Folder Include="ModuloComunesCIF\View\" />
+    <Folder Include="ModuloContabilidad\" />
+    <Folder Include="ModuloInventario\" />
+    <Folder Include="MouloFacturcion\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

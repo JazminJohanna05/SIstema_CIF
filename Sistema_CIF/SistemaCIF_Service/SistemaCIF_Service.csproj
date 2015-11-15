@@ -66,12 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\CategoriaService.svc" />
-    <Content Include="Services\UsuarioService.svc" />
+    <Content Include="Services\ModuloComunesCIF\UsuarioService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOS\CategoriaDTO.cs" />
-    <Compile Include="DTOS\UsuarioDTO.cs" />
+    <Compile Include="DTOS\ModuloComunesCIF\UsuarioDTO.cs" />
     <Compile Include="Model\Categoria.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -140,8 +140,8 @@
       <DependentUpon>CategoriaService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ICategoriaService.cs" />
-    <Compile Include="Services\IUsuarioService.cs" />
-    <Compile Include="Services\UsuarioService.svc.cs">
+    <Compile Include="Services\ModuloComunesCIF\IUsuarioService.cs" />
+    <Compile Include="Services\ModuloComunesCIF\UsuarioService.svc.cs">
       <DependentUpon>UsuarioService.svc</DependentUpon>
     </Compile>
   </ItemGroup>

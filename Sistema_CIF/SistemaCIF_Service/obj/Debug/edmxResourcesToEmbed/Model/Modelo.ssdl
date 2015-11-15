@@ -11,6 +11,7 @@
     <EntitySet Name="Producto" EntityType="Sistema_CIFModel.Store.Producto" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Proveedor" EntityType="Sistema_CIFModel.Store.Proveedor" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Roles" EntityType="Sistema_CIFModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Sistema_CIFModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tienda" EntityType="Sistema_CIFModel.Store.Tienda" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TipoPago" EntityType="Sistema_CIFModel.Store.TipoPago" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Usuario" EntityType="Sistema_CIFModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
@@ -19,6 +20,14 @@
     <AssociationSet Name="FK_Factura_Factura" Association="Sistema_CIFModel.Store.FK_Factura_Factura">
       <End Role="Factura" EntitySet="Factura" />
       <End Role="Factura1" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Privilegio" Association="Sistema_CIFModel.Store.FK_Usuario_Privilegio">
+      <End Role="Privilegio" EntitySet="Privilegio" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Roles" Association="Sistema_CIFModel.Store.FK_Usuario_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Categoria">
@@ -150,6 +159,16 @@
     <Property Name="RolId" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Tienda">
     <Key>
       <PropertyRef Name="TiendaId" />
@@ -181,7 +200,6 @@
     <Property Name="UsuarioId" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
     <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
-    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" />
     <Property Name="Contrasena" Type="nvarchar" MaxLength="50" />
     <Property Name="ConfirmacionContrasena" Type="nvarchar" MaxLength="50" />
     <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
@@ -192,6 +210,7 @@
     <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
     <Property Name="Identidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="RolId" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Vendedor">
     <Key>
@@ -235,6 +254,30 @@
       </Principal>
       <Dependent Role="Factura1">
         <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Privilegio">
+    <End Role="Privilegio" Type="Sistema_CIFModel.Store.Privilegio" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Sistema_CIFModel.Store.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilegio">
+        <PropertyRef Name="PrivilegioId" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="PrivilegioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Roles">
+    <End Role="Roles" Type="Sistema_CIFModel.Store.Roles" Multiplicity="1" />
+    <End Role="Usuario" Type="Sistema_CIFModel.Store.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RolId" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="RolId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

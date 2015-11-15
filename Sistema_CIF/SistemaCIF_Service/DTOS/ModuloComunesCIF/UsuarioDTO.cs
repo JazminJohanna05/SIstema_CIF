@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace SistemaCIF_Service.DTOS
+namespace SistemaCIF_Service.DTOS.ModuloComunesCIF
 {
     [DataContract]
     public class UsuarioDTO
@@ -14,13 +14,10 @@ namespace SistemaCIF_Service.DTOS
 
         [DataMember]
         public string Nombre { get; set; }
-        
+
         [DataMember]
         public string Apellido { get; set; }
-        
-        [DataMember]
-        public string NombreUsuario { get; set; }
-        
+
         [DataMember]
         public string Contraseña { get; set; }
 

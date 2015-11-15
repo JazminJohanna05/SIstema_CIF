@@ -233,7 +233,6 @@ namespace Sistema_CIF.ViewModel
                         Contraseña = item.Contraseña,
                         ConfirmacionContraseña = item.ConfirmacionContraseña,
                         FechaNacimiento = item.FechaNacimiento,
-                        NombreUsuario = item.NombreUsuario,
                         Sexo = item.Sexo,
                         Telefono = item.Telefono
                     };
@@ -252,7 +251,6 @@ namespace Sistema_CIF.ViewModel
                 UsuarioId = UsuarioId,
                 Nombre = Nombre,
                 Apellido = Apellido,
-                NombreUsuario = NombreUsuario,
                 Contraseña = Contrasena,
                 ConfirmacionContraseña = ConfirmarContrasena,
                 Telefono = Telefono,

@@ -15,7 +15,7 @@ namespace Sistema_CIF.Proxies.Usuario {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioDTO", Namespace="http://schemas.datacontract.org/2004/07/SistemaCIF_Service.DTOS")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioDTO", Namespace="http://schemas.datacontract.org/2004/07/SistemaCIF_Service.DTOS.ModuloComunesCIF")]
     [System.SerializableAttribute()]
     public partial class UsuarioDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -36,9 +36,6 @@ namespace Sistema_CIF.Proxies.Usuario {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreUsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SexoField;
@@ -120,19 +117,6 @@ namespace Sistema_CIF.Proxies.Usuario {
                 if ((object.ReferenceEquals(this.NombreField, value) != true)) {
                     this.NombreField = value;
                     this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreUsuario {
-            get {
-                return this.NombreUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
-                    this.NombreUsuarioField = value;
-                    this.RaisePropertyChanged("NombreUsuario");
                 }
             }
         }

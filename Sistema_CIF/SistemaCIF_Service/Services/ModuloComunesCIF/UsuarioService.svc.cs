@@ -1,21 +1,22 @@
-﻿using System;
+﻿using SistemaCIF_Service.DTOS.ModuloComunesCIF;
+using SistemaCIF_Service.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using SistemaCIF_Service.DTOS;
-using SistemaCIF_Service.Model;
 
-namespace SistemaCIF_Service.Services
+namespace SistemaCIF_Service.Services.ModuloComunesCIF
 {
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "UsuarioService" en el código, en svc y en el archivo de configuración a la vez.
+    // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione UsuarioService.svc o UsuarioService.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class UsuarioService : IUsuarioService
     {
         public void DoWork()
         {
         }
-
         public ObservableCollection<UsuarioDTO> ObtenerUsuario()
         {
             using (var contexto = new Sistema_CIFEntities())
@@ -32,7 +33,6 @@ namespace SistemaCIF_Service.Services
                         Contraseña = item.Contrasena,
                         ConfirmacionContraseña = item.ConfirmacionContrasena,
                         FechaNacimiento = item.FechaNacimiento,
-                        NombreUsuario = item.NombreUsuario,
                         Sexo = item.Sexo,
                         Telefono = item.Telefono
                     });
@@ -57,7 +57,6 @@ namespace SistemaCIF_Service.Services
                         Contrasena = usuarioDto.Contraseña,
                         ConfirmacionContrasena = usuarioDto.ConfirmacionContraseña,
                         FechaNacimiento = usuarioDto.FechaNacimiento,
-                        NombreUsuario = usuarioDto.NombreUsuario,
                         Sexo = usuarioDto.Sexo,
                         Telefono = usuarioDto.Telefono
 
@@ -94,7 +93,6 @@ namespace SistemaCIF_Service.Services
                     usuarioExiste.Contrasena = usuarioDto.Contraseña;
                     usuarioExiste.ConfirmacionContrasena = usuarioDto.ConfirmacionContraseña;
                     usuarioExiste.FechaNacimiento = usuarioDto.FechaNacimiento;
-                    usuarioExiste.NombreUsuario = usuarioDto.NombreUsuario;
                     usuarioExiste.Sexo = usuarioDto.Sexo;
                     usuarioExiste.Telefono = usuarioDto.Telefono;
                 }
