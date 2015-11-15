@@ -253,7 +253,7 @@ namespace Sistema_CIF.ViewModel
                 Apellido = Apellido,
                 Contraseña = Contrasena,
                 ConfirmacionContraseña = ConfirmarContrasena,
-                Telefono = Telefono,
+                                Telefono = Telefono,
                 FechaNacimiento = FechaNacimiento,
                 Sexo = Sexo
             };
